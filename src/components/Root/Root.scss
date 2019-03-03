@@ -1,0 +1,19 @@
+@import '../../theme.scss';
+$theme-font: verdana, sans-serif;
+
+body {
+  color: $black;
+  margin: 0;
+}
+
+.root {
+  flex-grow: 1;
+
+  .menu-button {
+    margin-left: -12px;
+    margin-right: 20px;
+  }
+  .grow {
+    flex-grow: 1
+  }
+}
