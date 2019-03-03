@@ -26,22 +26,21 @@ class Root extends Component {
     render() {
         return (
             <div className="root">
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton className="menu-button" color="inherit" aria-label="Menu">
-                            <div className="material-icons"> menu </div>
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" className="grow">
-                            News
-                        </Typography>
-                        <Button color="inherit">Login</Button>
-                    </Toolbar>
-                </AppBar>
+                <header className="site-header">
+                    <h1>Puppy image gallery</h1>
+                    <blockquote className="site-header__quote">
+                        <p>A dog will teach you unconditional love. If you can have that in your life, things won't be too bad.</p>
+                        <cite>&mdash;Robert Wagner</cite>
+                    </blockquote>
+                </header>
                 <Router history={this.props.history}>
                     <Switch>
                         <Route exact path="/" component={Home} />
                     </Switch>
                 </Router>
+                <footer className="site-footer">
+                    <p>Built by a wonderful developer for Asana.</p>
+                </footer>
             </div>
         )
     }

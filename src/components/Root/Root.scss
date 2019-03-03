@@ -1,9 +1,23 @@
 @import '../../theme.scss';
-$theme-font: verdana, sans-serif;
+
+/* Globals */
+:root {
+	--font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-serif: Georgia, serif;
+	--color-secondary: #333;
+	--color-link: #635ac7;
+
+	font-family: var(--font-sans);
+	font-weight: normal;
+	line-height: 1.5;
+}
 
 body {
-  color: $black;
-  margin: 0;
+	margin: 0;
+}
+
+a {
+	color: var(--color-link);
 }
 
 .root {
@@ -16,4 +30,25 @@ body {
   .grow {
     flex-grow: 1
   }
+}
+
+/* Snippets */
+.site-header {
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+	text-align: center;
+}
+
+.site-header__quote {
+	color: var(--color);
+	font-family: var(--font-serif);
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 460px;
+}
+
+.site-footer {
+	color: var(--color);
+	font-family: var(--font-serif);
+	text-align: center;
 }
