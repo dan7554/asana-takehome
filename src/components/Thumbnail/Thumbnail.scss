@@ -1,11 +1,16 @@
 .thumbnail {
 	height: 200px;
 	width: 200px;
-
+	position: relative;
+	
 	.thumbnail__container {
 		height: 100%;
+		width: 100%;
 		cursor: pointer;
 		transform: translate3d(0, 0, 0);
+		transition: transform 300ms;
+		z-index: 1;
+		position: absolute;
 
 		.thumbnail__image {
 			height: 100%;
@@ -37,5 +42,14 @@
 	.thumbnail {
 		width: 400px;
 		height: 400px;
+	}
+}
+
+.sm, .md, .lg, .xl, .xxl {
+	.thumbnail__container {
+		&:hover {
+			transform: translate3d(0, 0, 0) scale(1.1);
+			z-index: 2;
+		}
 	}
 }
