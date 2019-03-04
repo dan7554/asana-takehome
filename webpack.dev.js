@@ -1,10 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ConfigWebpackPlugin = require('config-webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const publicPath = '/dist/build/'
-
 
 module.exports = env => {
   // Set env for config file loader
@@ -32,6 +30,11 @@ module.exports = env => {
 
       //Adds a global namespace 'Config' to expose config files managed by the config module
       new ConfigWebpackPlugin('Config'),
+
+      // Copy images to dist 
+      new CopyWebpackPlugin([
+        { from: 'src/assets/images/', to: 'assets/images' }
+      ])
     ],
 
     output: {

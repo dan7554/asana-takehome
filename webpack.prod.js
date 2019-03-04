@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const ConfigWebpackPlugin = require('config-webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const publicPath = '/dist/build/'
 
 module.exports = env => {
@@ -41,7 +42,10 @@ module.exports = env => {
         },
         comments: false
       }),
-      new ConfigWebpackPlugin('Config')
+      new ConfigWebpackPlugin('Config'),
+      new CopyWebpackPlugin([
+        { from: 'src/assets/images/', to: 'assets/images' }
+      ])
     ],
     resolve: {
       alias: {
