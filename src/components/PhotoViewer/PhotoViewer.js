@@ -12,6 +12,9 @@ class PhotoViewer extends Component {
         return (
             <div className="photo-viewer" onClick={closePhotoViewer}>
                 <div className="photo-viewer__underlay" />
+                <div className="photo-viewer__close material-icons">
+                    close
+                </div>
                 <img className="photo-viewer__photo" src={imageSrc} />
             </div>
         )
