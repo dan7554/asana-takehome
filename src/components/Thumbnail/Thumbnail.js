@@ -39,8 +39,8 @@ class Thumbnail extends Component {
         this.loadPhoto()
     }
 
-    viewImage = img => {
-        // this.props.viewImage(img)
+    viewImage = imageSrc => {
+        this.props.viewImage(imageSrc)
     }
 
     render() {
@@ -57,7 +57,7 @@ class Thumbnail extends Component {
 const mapStateToProps = state => ({ ...state.page })
 
 const mapDispatchToProps = dispatch => ({
-    viewImage: value => dispatch(viewImage(value))
+    openPhotoViewer: value => dispatch(openPhotoViewer(value))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Thumbnail)

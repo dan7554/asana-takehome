@@ -48,5 +48,3 @@ export function forceWidth(width) {
         width
     }
 }
-
-// Async Action Creators
