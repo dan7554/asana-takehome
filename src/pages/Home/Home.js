@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Home.scss'
 import { connect } from 'react-redux'
 import dogData from '@assets/data/dogs'
-import { Thumbnail, ThumbnailContainer } from '@components'
+import { Thumbnail, ThumbnailContainer, PhotoViewer } from '@components'
 
 class Home extends Component {
     render() {
@@ -11,6 +11,7 @@ class Home extends Component {
                 <ThumbnailContainer>
                     {dogData.dogs.map((dog, i) => <Thumbnail key={`thumbnail-${i}`} src={dog.image} />)}
                 </ThumbnailContainer>
+                <PhotoViewer />
             </div>
         )
     }

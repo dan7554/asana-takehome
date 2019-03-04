@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import $ from "jquery"
 import './Thumbnail.scss'
 import { connect } from 'react-redux'
 import getHash from '@utility/getHash'
+import { openPhotoViewer } from '@ducks/PhotoViewer'
 
 class Thumbnail extends Component {
 
@@ -19,8 +19,6 @@ class Thumbnail extends Component {
 
         imageElement.onload = () => {
             let previewArea = window.currentDocument.querySelector(`#${this.id}`)
-
-            console.log('onload', this.props.src, `#${this.id}`, previewArea)
 
             if (previewArea) {
                 // Show the image
@@ -39,15 +37,14 @@ class Thumbnail extends Component {
         this.loadPhoto()
     }
 
-    viewImage = imageSrc => {
-        this.props.viewImage(imageSrc)
+    viewImage = () => {
+        const { openPhotoViewer, src } = this.props
+        openPhotoViewer(src)
     }
 
     render() {
-        const { breakpoint } = this.props
-
         return (
-            <div className={`thumbnail`} onClick={this.viewImage}>
+            <div className="thumbnail" onClick={this.viewImage}>
                 <div className="thumbnail__container" id={this.id} />
             </div>
         )
