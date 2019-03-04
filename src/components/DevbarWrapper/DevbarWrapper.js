@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 import { forceWidth } from '@ducks/Page'
 import './DevbarWrapper.scss'
 
-class DevbarWrapper extends Component  {
+class DevbarWrapper extends Component {
     constructor(props) {
         super(props)
         if (Config.devbar.enabled) {
             this.setDefaultBreakpoint()
-        }   
+        }
     }
-    
+
     setDefaultBreakpoint = () => {
         const { forceWidth } = this.props
         let frameWidth = '100%'
@@ -21,7 +21,7 @@ class DevbarWrapper extends Component  {
         } else if (Object.keys(Config.breakpoints).includes(Config.devbar.defaultBreakpoint)) {
             frameWidth = Config.breakpoints[Config.devbar.defaultBreakpoint].max
         } else {
-            console.error('Default breakpoint doesnt exist.', Config.devbar.defaultBreakpoint,Object.keys(Config.breakpoints))
+            console.error('Default breakpoint doesnt exist.', Config.devbar.defaultBreakpoint, Object.keys(Config.breakpoints))
         }
         forceWidth(frameWidth)
     }
@@ -33,6 +33,9 @@ class DevbarWrapper extends Component  {
                 frameBody.appendChild(el)
             this.el = el
             this.updateIFrameContents()
+            window.currentDocument = ReactDOM.findDOMNode(this.refs.frame).contentWindow.document
+        } else {
+            window.currentDocument = document
         }
     }
 
@@ -84,7 +87,7 @@ class DevbarWrapper extends Component  {
         })
         head.appendChild(style)
     }
-    
+
     onBreakClick = (label, index) => {
         const { forceWidth } = this.props
         const lastBreakpoint = index + 1 === Config.breakpoints.length
@@ -94,7 +97,7 @@ class DevbarWrapper extends Component  {
         forceWidth(frameWidth <= windowWidth ? frameWidth : windowWidth)
     }
 
-    render(){
+    render() {
         if (!Config.devbar.enabled) {
             return this.props.children
         }
@@ -109,12 +112,12 @@ class DevbarWrapper extends Component  {
                         const width = Config.breakpoints[label].max - Config.breakpoints[label].min
                         const left = Config.breakpoints[label].min
                         return (
-                            <button 
-                                style={{width, left}} 
-                                onClick={this.onBreakClick.bind(this,label, index)} 
-                                key={'break'+index}
-                            > 
-                                {label} 
+                            <button
+                                style={{ width, left }}
+                                onClick={this.onBreakClick.bind(this, label, index)}
+                                key={'break' + index}
+                            >
+                                {label}
                             </button>
                         )
                     })}
@@ -122,7 +125,7 @@ class DevbarWrapper extends Component  {
                 <iframe style={{ width: forcedWidth + 'px' }} ref='frame' className="frame" />
             </div>
         )
-    }   
+    }
 }
 
 const mapStateToProps = state => ({
@@ -131,7 +134,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     forceWidth: value => dispatch(forceWidth(value))
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DevbarWrapper)

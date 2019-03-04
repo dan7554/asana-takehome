@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './Home.scss'
 import { connect } from 'react-redux'
+import dogData from '@assets/data/dogs'
+import { Thumbnail, ThumbnailContainer } from '@components'
 
 class Home extends Component {
     render() {
         return (
             <div className="home">
-                You are home
+                <ThumbnailContainer>
+                    {dogData.dogs.map((dog, i) => <Thumbnail key={`thumbnail-${i}`} src={dog.image} />)}
+                </ThumbnailContainer>
             </div>
         )
     }

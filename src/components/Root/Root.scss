@@ -1,4 +1,4 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 /* Globals */
 :root {
@@ -20,18 +20,6 @@ a {
 	color: var(--color-link);
 }
 
-.root {
-  flex-grow: 1;
-
-  .menu-button {
-    margin-left: -12px;
-    margin-right: 20px;
-  }
-  .grow {
-    flex-grow: 1
-  }
-}
-
 /* Snippets */
 .site-header {
 	padding-bottom: 2rem;
@@ -51,4 +39,14 @@ a {
 	color: var(--color);
 	font-family: var(--font-serif);
 	text-align: center;
+	p {
+		margin: 0;
+		line-height: 60px;
+	}
+}
+
+.xxs {
+	blockquote {
+		padding: 0 10px;
+	}
 }

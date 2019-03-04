@@ -1,0 +1,12 @@
+.thumbnail-container {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.xxs,
+.xs {
+	.thumbnail-container {
+		width: 100%;
+	}
+}

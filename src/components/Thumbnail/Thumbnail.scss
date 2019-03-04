@@ -1,0 +1,40 @@
+.thumbnail {
+    height: 200px;
+    width: 200px;
+}
+
+.thumbnail__container {
+    height: 100%;
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+}
+
+.thumbnail__image {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+    position: absolute;
+    cursor: pointer;
+    background-color: #EBEAEA;
+    transform: translate3d(0, 0, 0)
+}
+
+.xs, .xxs {
+    .thumbnail {
+        width: 50%;
+    }
+}
+
+.xxs {
+    .thumbnail {
+        height: 150px;
+    }
+}
+
+.xxl {
+    .thumbnail {
+        width: 400px;
+        height: 400px;
+    }
+}

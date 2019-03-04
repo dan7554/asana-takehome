@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { updateWidth } from '@ducks/Page'
 import { Router, Switch, Route } from 'react-router'
 import { Home } from '@pages'
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core'
 
 class Root extends Component {
     updatePageWidth = () => {
@@ -24,8 +23,10 @@ class Root extends Component {
         window.removeEventListener('resize', this.updatePageWidth)
     }
     render() {
+        const { breakpoint } = this.props
+
         return (
-            <div className="root">
+            <div className={`root ${breakpoint}`}>
                 <header className="site-header">
                     <h1>Puppy image gallery</h1>
                     <blockquote className="site-header__quote">
@@ -33,14 +34,17 @@ class Root extends Component {
                         <cite>&mdash;Robert Wagner</cite>
                     </blockquote>
                 </header>
-                <Router history={this.props.history}>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                    </Switch>
-                </Router>
-                <footer className="site-footer">
-                    <p>Built by a wonderful developer for Asana.</p>
-                </footer>
+                <div className='root__content'>
+                    <Router history={this.props.history}>
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                        </Switch>
+                    </Router>
+                    <footer className="site-footer">
+                        <p>Built by a wonderful developer for Asana.</p>
+                    </footer>
+                </div>
+
             </div>
         )
     }
