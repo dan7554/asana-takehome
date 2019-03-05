@@ -2,7 +2,7 @@
 
 ## Demo
 
-[Live demo.](asana-demo.dchristiani.com)
+[Live demo.](http://asana-demo.dchristiani.com)
 
 ## Install + Run
     -- run with dev wrapper --
