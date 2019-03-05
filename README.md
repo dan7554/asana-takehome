@@ -42,7 +42,7 @@ Thumbnails are available at given sizes and a user can click/tap images to view 
 
 > "Starting next month, we'll be partnering with a shelter that has 2000 pets available for adoption. We need this page to be able to handle that many listings."
 
-To aid with image loading I pushed all the images onto the event loop by creating image elements on-mount inside the Thumnail components. Once the image has loaded, it is added to the dom into it's own container. When more images become available, I would host the images as both thumbnails (200-400px) for the gallery, and the high-res image for the full preview. If nessesary, additional lazy loading could be added based on the current scroll position, and the size of the window to retrieve thumbnails in 50-100 chunks to further improve performance.
+To aid with image loading I pushed all the images onto the browser event loop by creating image elements on-mount inside the Thumnail components. Once the image has loaded, it is added to the dom into it's own container. When more images become available, I would host the images as both thumbnails (200-400px) for the gallery, and the high-res image for the full preview. If nessesary, additional lazy loading could be added based on the current scroll position, and the size of the window to retrieve thumbnails in 50-100 chunks to further improve performance. The demo still downloads loads images relatively slow because all the images are hosted inside of the application. Moving all the images to s3 or a CDN would help significantly. 
 
 > "Most people find out about us from internet searches. We need this page to appear towards the top of search results."
 
