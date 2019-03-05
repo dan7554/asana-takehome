@@ -1,10 +1,21 @@
 # Readme
 
+## Demo
+
+[Live demo.](asana-demo.dchristiani.com)
+
 ## Install + Run
+    -- run with dev wrapper --
 
     npm install
     npm run build-dev
-    npm start
+    npm run start-dev
+
+    -- run without wrapper --
+
+    npm install
+    npm run build-prod
+    npm run start-prod
 
 ## Technical Choices
 
@@ -15,9 +26,9 @@ I chose to use React/Redux with a Scss pre-processor for CSS. I used a homebuilt
 I decieded to try using my own boilerplate react library I have been testing and improving upon. The intention of the boilerplate is to provide a set of tools and a project schema that make responsive website design fast and enjoyable to develop.
 
 Primarily this includes:
-    * A dev wrapper that runs the primary app in an iFrame and has configurable breakpoints (see ./config/ to modify and disable wrapper)
-    * A breakpoint reducer sensitive to page width, passing easy to develop css classes to all components
-    * A Duck / Page / Component / Asset project structure.
+* A dev wrapper that runs the primary app in an iFrame and has configurable breakpoints (see ./config/ to modify and disable wrapper). Running in prod disables this by default.
+* A breakpoint reducer sensitive to page width, passing easy to develop css classes to all components
+* A Duck / Page / Component / Asset project structure.
 
 ## Guidance from the design team
 
