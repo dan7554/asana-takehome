@@ -41,7 +41,7 @@ class Root extends Component {
                         </Switch>
                     </Router>
                     <footer className="site-footer">
-                        <p>Built by a wonderful developer for Asana.</p>
+                        <p>Built by a wonderful developer for Asana. Find us on <a href="https://www.adoptapet.com/">Adopt A Pet</a></p>
                     </footer>
                 </div>
 

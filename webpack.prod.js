@@ -18,7 +18,8 @@ module.exports = env => {
     },
     devServer: {
       port: 3001,
-      host: 'localhost',
+      disableHostCheck: true,
+      host: '0.0.0.0',
       //Be possible go back pressing the "back" button at chrome
       historyApiFallback: true,
       noInfo: false,

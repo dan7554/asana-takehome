@@ -11,6 +11,6 @@ RUN npm install
 RUN npm run build-prod
 
 # Make port 80 available to the world outside this container
-EXPOSE 8090
+EXPOSE 3001
 
 CMD ["npm", "run", "start-prod"]
