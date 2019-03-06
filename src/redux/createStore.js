@@ -13,8 +13,11 @@ const reducers = combineReducers({
 })
 
 // Redux config
-const logger = createLogger()
-const middleware = applyMiddleware(logger, thunk)
+let middlewares = [thunk]
+if(Config.env !== 'prod') {
+  middlewares = [ ...middlewares, createLogger() ]
+}
+const middleware = applyMiddleware(...middlewares)
 const store = createStore(reducers, middleware)
 
 export default store
